@@ -23,14 +23,23 @@ function changeColorNext(element) {
     element.style.color = "black";
 }
 /** 2. Tiesiogiai HTML faile rankiniu būdu sukurkite <h3> tagą ir vieną mygtuką. Susikurkite tuščią masyvą, skaičiams saugoti.*/
-    let skaiciai = [];
 /**  Paspaudus mygtuką, sugeneruokite rand() skaičių nuo 1 iki 10. Sugeneruotą skaičių pridėkite į masyvą, o tą masyvą atspausdinkite konsolėle.*/
-    skaiciai.push(rand(1,10));
+    let skaiciai = [];
+    function h3(){
+        skaiciai.push(rand(1 ,10));
+    const h3e = document.getElementById('h3');
+    if((skaiciai.length === 0)){
+        h3e.innerText = 'nera ka skaiciuoti';
+    } else {
+
+          h3e.innerText = skaiciai.reduce((a,b)=>a+b);
+    }
     console.log(skaiciai);
+    };
 /** <h3> tage skaičiuokite ir su innerText() metodu rašykite visų sugeneruotų skaičių sumą. */
-    const h3 = document.getElementsByTagName('h3');
-          h3[0].innerText = skaiciai;
-        
+
+
+
 /** 3. Tiesiogiai HTML faile rankiniu būdu sukurkite <ul> tagą.*/
     const ul = document.getElementById('ul');
     /** JS pagalba perskaitykite masyvą africa. */
@@ -57,12 +66,17 @@ Pasirinkite patys sau patogiausius metodus tai atlikti.
 function calcTotal() {
 let fnum = document.getElementById('fnum').value;
 let snum = document.getElementById('snum').value;
-
-if(action === 'plus') {
     let total = Number(fnum) + Number(snum);
-}
     document.getElementById('answer').innerText = total;
 }
+function calcM() {
+let fnum = document.getElementById('fnum').value;
+let snum = document.getElementById('snum').value;
+    let total = Number(fnum) - Number(snum);
+    document.getElementById('answer').innerText = total;
+}
+
+
 /**
 
 5. Tiesiogiai HTML faile rankiniu būdu sukurkite <ul> tagą. (2 taškai)
@@ -70,3 +84,16 @@ a. JS pagalba perskaitykite masyvą australia ir kiekvieną masyvo elementą įr
 b. Tą stringą naudodami innerHTML() metodą įdėkite į <ul> tago vidų. (5 taškai)
 c. Generavimo metu “Dingo” background’ą nuspalvinkite mėlynai. (5 taškai)
  */
+    let ul2 = document.getElementById('ul5');
+    let string = '';
+for (const gyventojai of australia){
+    let li2 = document.createElement('li');
+    li2.appendChild(document.createTextNode(gyventojai));
+    if(li2.innerText === 'Dingo'){
+        li2.style.backgroundColor = 'blue';
+        li2.style.color = 'yellow';
+    }
+    ul2.appendChild(li2);
+}
+    string = ul2.innerHTML;
+    ul2.innerHTML += string;
